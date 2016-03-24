@@ -1,4 +1,4 @@
-#include "playstate.h"
+#include "include/playstate.h"
 
 PlayState::PlayState(sf::RenderWindow *window, AppEngine *App)
 {
@@ -33,19 +33,19 @@ void PlayState::Event(sf::RenderWindow *window, AppEngine *App)
         {
             if (event.key.code == sf::Keyboard::Left)
             {
-                shapes[0]->get<PositionComponent>()->setX(shapes[0]->get<PositionComponent>()->getX() - 40);
+                shapes[0]->get<CPosition>()->setX(shapes[0]->get<CPosition>()->getX() - 40);
             }
             else if (event.key.code == sf::Keyboard::Right)
             {
-                shapes[0]->get<PositionComponent>()->setX(shapes[0]->get<PositionComponent>()->getX() + 40);
+                shapes[0]->get<CPosition>()->setX(shapes[0]->get<CPosition>()->getX() + 40);
             }
             else if (event.key.code == sf::Keyboard::Up)
             {
-                shapes[0]->get<PositionComponent>()->setY(shapes[0]->get<PositionComponent>()->getY() - 40);
+                shapes[0]->get<CPosition>()->setY(shapes[0]->get<CPosition>()->getY() - 40);
             }
             else if (event.key.code == sf::Keyboard::Down)
             {
-                shapes[0]->get<PositionComponent>()->setY(shapes[0]->get<PositionComponent>()->getY() + 40);
+                shapes[0]->get<CPosition>()->setY(shapes[0]->get<CPosition>()->getY() + 40);
             }
         }
     }
@@ -53,13 +53,13 @@ void PlayState::Event(sf::RenderWindow *window, AppEngine *App)
 
 Entity PlayState::getBlock()
 {
-    auto pos = new PositionComponent;
+    auto pos = new CPosition;
     pos->setX(0);
     pos->setY(0);
-    E.addComponent(std::type_index(typeid(PositionComponent)), pos);
-    SpriteComponent* spr = new SpriteComponent;
+    E.addComponent(std::type_index(typeid(CPosition)), pos);
+    auto spr = new CSprite;
     spr->setSprite(Block.getSprite(0, 0));
-    E.addComponent(std::type_index(typeid(SpriteComponent)), spr);
+    E.addComponent(std::type_index(typeid(CSprite)), spr);
 
     return E;
 }
@@ -69,21 +69,21 @@ void PlayState::Update()
     for (std::vector<std::shared_ptr<Entity>>::iterator iter = shapes.begin() ; iter != shapes.end(); ++iter)
     {
         // Collision detection
-        if ((*iter)->get<PositionComponent>()->getX() <= 0)
+        if ((*iter)->get<CPosition>()->getX() <= 0)
         {
-            (*iter)->get<PositionComponent>()->setX(0);
+            (*iter)->get<CPosition>()->setX(0);
         }
-        if ((*iter)->get<PositionComponent>()->getX() >= 448)
+        if ((*iter)->get<CPosition>()->getX() >= 448)
         {
-            (*iter)->get<PositionComponent>()->setX(448);
+            (*iter)->get<CPosition>()->setX(448);
         }
-        if ((*iter)->get<PositionComponent>()->getY() <= 0)
+        if ((*iter)->get<CPosition>()->getY() <= 0)
         {
-            (*iter)->get<PositionComponent>()->setY(0);
+            (*iter)->get<CPosition>()->setY(0);
         }
-        if ((*iter)->get<PositionComponent>()->getY() >= 448)
+        if ((*iter)->get<CPosition>()->getY() >= 448)
         {
-            (*iter)->get<PositionComponent>()->setY(448);
+            (*iter)->get<CPosition>()->setY(448);
         }
     }
 }

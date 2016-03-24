@@ -5,7 +5,7 @@ class Component
 {
 public:
     // Destructor
-    virtual ~Component();
+    virtual ~Component() {};
 };
 
 #endif // COMPONENT_H

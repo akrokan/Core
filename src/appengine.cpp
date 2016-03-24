@@ -1,4 +1,5 @@
-#include "appengine.h"
+#include "include/appengine.h"
+Entity* piece();
 
 void AppEngine::ChangeState(std::string state)
 {
@@ -12,8 +13,8 @@ void AppEngine::Draw(std::vector<std::shared_ptr<Entity>> shapes)
 
     for (std::vector<std::shared_ptr<Entity>>::iterator iter = shapes.begin() ; iter != shapes.end(); ++iter)
     {
-        auto shape = (*iter)->get<SpriteComponent>()->getSprite();
-        shape.setPosition(sf::Vector2f((*iter)->get<PositionComponent>()->getX(), (*iter)->get<PositionComponent>()->getY()));
+        auto shape = (*iter)->get<CSprite>()->getSprite();
+        shape.setPosition(sf::Vector2f((*iter)->get<CPosition>()->getX(), (*iter)->get<CPosition>()->getY()));
 
         window.draw(shape);
     }
@@ -21,7 +22,8 @@ void AppEngine::Draw(std::vector<std::shared_ptr<Entity>> shapes)
     window.display();
 }
 
-void AppEngine::Event(std::vector<std::shared_ptr<Entity>> shapes, AppEngine *App)
+void AppEngine::Event(AppEngine *App)
+//void AppEngine::Event(std::vector<std::shared_ptr<Entity>> shapes, AppEngine *App)
 {
     sf::Event event;
     while (window.pollEvent(event))
@@ -80,4 +82,20 @@ void AppEngine::Update(std::vector<std::shared_ptr<Entity>> shapes)
     {
 
     }
+}
+
+Entity* piece()
+{
+    Entity* test = new Entity;
+    Sprite Block;
+
+    auto pos = new CPosition;
+    pos->setX(0);
+    pos->setY(0);
+    test->addComponent(std::type_index(typeid(CPosition)), pos);
+    auto spr = new CSprite;
+    spr->setSprite(Block.getSprite(0, 0));
+    test->addComponent(std::type_index(typeid(CSprite)), spr);
+
+    return test;
 }

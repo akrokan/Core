@@ -1,4 +1,4 @@
-#include "appengine.h"
+#include "include/appengine.h"
 
 int main(void)
 {
@@ -14,7 +14,7 @@ int main(void)
     // Main loop
     while (App.Running())
     {
-        App.Event(shapes, &App);
+        App.Event(&App);
         App.Update(shapes);
         App.Draw(shapes);
     }

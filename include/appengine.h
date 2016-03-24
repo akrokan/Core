@@ -11,9 +11,8 @@
 #include "entity.h"
 #include "menustate.h"
 #include "playstate.h"
-#include "positioncomponent.h"
-//#include "sprite.h"
-#include "spritecomponent.h"
+#include "Components/position.h"
+#include "Components/sprite.h"
 
 class AppEngine
 {
@@ -28,8 +27,8 @@ public:
 
     // Functions
     void Draw(std::vector<std::shared_ptr<Entity>> shapes);
-    void Event(std::vector<std::shared_ptr<Entity>> shapes, AppEngine *App);
-//    void Event(AppEngine *App, Entity *Shape);
+//    void Event(std::vector<std::shared_ptr<Entity>> shapes, AppEngine *App);
+    void Event(AppEngine *App);
     void Init();
     void Update(std::vector<std::shared_ptr<Entity>> shapes);
 

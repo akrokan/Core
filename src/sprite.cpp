@@ -1,6 +1,6 @@
-#include "sprite.h"
+#include "include/sprite.h"
 
-Sprite::Sprite() { }
+Sprite::Sprite() {}
 
 sf::Sprite Sprite::getSprite(int x, int y)
 {

@@ -1,18 +1,18 @@
-#ifndef SPRITECOMPONENT_H
-#define SPRITECOMPONENT_H
+#ifndef CSPRITE_H
+#define CSPRITE_H
 
 #include "SFML/Graphics.hpp"
 
-#include "component.h"
+#include "include/component.h"
 
-class SpriteComponent : public Component
+class CSprite : public Component
 {
     sf::Sprite sprite;
     sf::Texture texture;
 
 public:
     // Constructor
-    SpriteComponent();
+    CSprite();
 
     // Functions
     sf::Sprite getSprite();
@@ -20,4 +20,4 @@ public:
     void setSprite(sf::Sprite sprite);
 };
 
-#endif // SPRITECOMPONENT_H
+#endif // CSPRITE_H
