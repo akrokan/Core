@@ -1,21 +1,21 @@
-#ifndef MENUSTATE_H
-#define MENUSTATE_H
+#ifndef PAUSE_H
+#define PAUSE_H
 
-#include "appengine.h"
+#include "CORE/appengine.h"
 
 class AppEngine;
 
-class MenuState
+class Pause
 {
     // Variables
     bool pause {1};
 
 public:
     // Constructor
-    MenuState(AppEngine *App, sf::RenderWindow *window);
+    Pause(AppEngine *App, sf::RenderWindow *window);
 
     // Destructor
-    ~MenuState() {};
+    ~Pause() {};
 
     // Functions
     void Draw       (sf::RenderWindow *window);
@@ -23,4 +23,4 @@ public:
     void Instance   (AppEngine *App, sf::RenderWindow *window);
 };
 
-#endif // MENUSTATE_H
+#endif // PAUSE_H

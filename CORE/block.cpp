@@ -1,8 +1,8 @@
-#include "include/sprite.h"
+#include "block.h"
 
-Sprite::Sprite() {}
+Block::Block() {}
 
-sf::Sprite Sprite::getSprite(int x, int y)
+sf::Sprite Block::getSprite(int x, int y)
 {
     if (!texture.loadFromFile("image.png", sf::IntRect(x, y, spriteSize, spriteSize)))
     {

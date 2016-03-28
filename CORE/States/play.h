@@ -1,24 +1,25 @@
-#ifndef PLAYSTATE_H
-#define PLAYSTATE_H
+#ifndef PLAY_H
+#define PLAY_H
 
-#include "appengine.h"
-#include "sprite.h"
+#include "CORE/appengine.h"
+#include "CORE/block.h"
+#include "CORE/Systems/movement.h"
 
 class AppEngine;
 
-class PlayState
+class Play
 {
     bool play {1};
     Entity E;
-    Sprite Block;
+    Block B;
     std::vector<std::shared_ptr<Entity>> shapes;
 
 public:
     // Constructor
-    PlayState(sf::RenderWindow *window, AppEngine *App);
+    Play(sf::RenderWindow *window, AppEngine *App);
 
     // Destructor
-    ~PlayState() {};
+    ~Play() {};
 
     // Functions
     void Event      (sf::RenderWindow *window, AppEngine *App);
@@ -27,4 +28,4 @@ public:
     Entity getBlock();
 };
 
-#endif // PLAYSTATE_H
+#endif // PLAY_H

@@ -3,7 +3,7 @@
 
 #include "SFML/Graphics.hpp"
 
-#include "include/component.h"
+#include "CORE/component.h"
 
 class CSprite : public Component
 {

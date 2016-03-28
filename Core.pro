@@ -14,21 +14,26 @@ INCLUDEPATH += "/home/hugues/SAFML/include"
 DEPENDPATH += "/home/hugues/SAFML/include"
 
 SOURCES += main.cpp \
-    src/appengine.cpp \
-    src/entity.cpp \
-    src/menustate.cpp \
-    src/playstate.cpp \
-    src/sprite.cpp \
-    src/csprite.cpp \
-    src/position.cpp
+    CORE/Components/position.cpp \
+    CORE/Components/sprite.cpp \
+    CORE/Components/state.cpp \
+    CORE/Components/velocity.cpp \
+    CORE/Systems/movement.cpp \
+    CORE/appengine.cpp \
+    CORE/block.cpp \
+    CORE/entity.cpp \
+    CORE/States/play.cpp \
+    CORE/States/pause.cpp
 
 HEADERS += \
-    include/appengine.h \
-    include/component.h \
-    include/entity.h \
-    include/menustate.h \
-    include/playstate.h \
-    include/sprite.h \
-    include/statesystem.h \
-    include/Components/position.h \
-    include/Components/sprite.h
+    CORE/component.h \
+    CORE/Components/position.h \
+    CORE/Components/sprite.h \
+    CORE/Components/state.h \
+    CORE/Components/velocity.h \
+    CORE/appengine.h \
+    CORE/block.h \
+    CORE/entity.h \
+    CORE/States/play.h \
+    CORE/States/pause.h \
+    CORE/Systems/movement.h

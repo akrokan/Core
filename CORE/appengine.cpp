@@ -1,5 +1,7 @@
-#include "include/appengine.h"
-Entity* piece();
+#include "appengine.h"
+
+const int SCREEN_WIDTH {480};
+const int SCREEN_HEIGHT {480};
 
 void AppEngine::ChangeState(std::string state)
 {
@@ -23,7 +25,6 @@ void AppEngine::Draw(std::vector<std::shared_ptr<Entity>> shapes)
 }
 
 void AppEngine::Event(AppEngine *App)
-//void AppEngine::Event(std::vector<std::shared_ptr<Entity>> shapes, AppEngine *App)
 {
     sf::Event event;
     while (window.pollEvent(event))
@@ -37,11 +38,11 @@ void AppEngine::Event(AppEngine *App)
         {
             if (event.key.code == sf::Keyboard::P)
             {
-                MenuState Menu(App, &window);
+
             }
             if (event.key.code == sf::Keyboard::Space)
             {
-                PlayState Play(&window, App);
+                Play Play(&window, App);
             }
         }
     }
@@ -49,7 +50,7 @@ void AppEngine::Event(AppEngine *App)
 
 void AppEngine::Init()
 {
-    window.create(sf::VideoMode(480, 480), "App");
+    window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "App");
     window.setFramerateLimit(60);
     isRunning = 1;
 
@@ -82,20 +83,4 @@ void AppEngine::Update(std::vector<std::shared_ptr<Entity>> shapes)
     {
 
     }
-}
-
-Entity* piece()
-{
-    Entity* test = new Entity;
-    Sprite Block;
-
-    auto pos = new CPosition;
-    pos->setX(0);
-    pos->setY(0);
-    test->addComponent(std::type_index(typeid(CPosition)), pos);
-    auto spr = new CSprite;
-    spr->setSprite(Block.getSprite(0, 0));
-    test->addComponent(std::type_index(typeid(CSprite)), spr);
-
-    return test;
 }

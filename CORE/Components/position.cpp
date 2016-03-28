@@ -1,4 +1,4 @@
-#include "include/Components/position.h"
+#include "position.h"
 
 CPosition::CPosition() {}
 

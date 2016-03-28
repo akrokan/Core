@@ -1,6 +1,6 @@
-#include "include/Components/sprite.h"
+#include "sprite.h"
 
-CSprite::CSprite() { }
+CSprite::CSprite() {}
 
 sf::Sprite CSprite::getSprite()
 {

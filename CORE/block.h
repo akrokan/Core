@@ -1,12 +1,12 @@
-#ifndef SPRITE_H
-#define SPRITE_H
+#ifndef BLOCK_H
+#define BLOCK_H
 
 #include <iostream>
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
-class Sprite
+class Block
 {
     int x {0}, y {0};
     sf::Sprite sprite;
@@ -15,10 +15,10 @@ class Sprite
 
 public:
     // Constructor
-    Sprite();
+    Block();
 
     // Functions
     sf::Sprite getSprite (int x, int y);
 };
 
-#endif // SPRITE_H
+#endif // BLOCK_H

@@ -1,6 +1,6 @@
-#include "include/menustate.h"
+#include "pause.h"
 
-MenuState::MenuState(AppEngine *App, sf::RenderWindow *window)
+Pause::Pause(AppEngine *App, sf::RenderWindow *window)
 {
     App->ChangeState("MenuState");
 
@@ -11,13 +11,13 @@ MenuState::MenuState(AppEngine *App, sf::RenderWindow *window)
     }
 }
 
-void MenuState::Draw(sf::RenderWindow *window)
+void Pause::Draw(sf::RenderWindow *window)
 {
     window->clear(sf::Color::Blue);
     window->display();
 }
 
-void MenuState::Event(AppEngine *App, sf::RenderWindow *window)
+void Pause::Event(AppEngine *App, sf::RenderWindow *window)
 {
     sf::Event event;
     while (window->pollEvent(event))

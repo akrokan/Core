@@ -1,7 +1,7 @@
 #ifndef CPOSITION_H
 #define CPOSITION_H
 
-#include "include/component.h"
+#include "CORE/component.h"
 
 class CPosition : public Component
 {
