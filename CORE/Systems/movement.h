@@ -2,6 +2,7 @@
 #define MOVEMENT_H
 
 #include "CORE/appengine.h"
+#include "CORE/Systems/collision.h"
 
 class Movement
 {

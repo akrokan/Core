@@ -5,10 +5,11 @@ Play::Play(sf::RenderWindow *window, AppEngine *App)
     App->ChangeState("PlayState");
 
     // Get a block
-    this->getBlock();
+//    auto block = this->getBlock();
+    auto block = Block::getBlock();
 
     // Push it on the "stack"
-    shapes.push_back(std::make_shared<Entity>(E));
+    shapes.push_back(std::make_shared<Entity>(block));
 
     while (play)
     {
@@ -63,6 +64,7 @@ void Play::Event(sf::RenderWindow *window, AppEngine *App)
 
 Entity Play::getBlock()
 {
+//    Block B;
     // set position
     auto pos = new CPosition;
     pos->setX(0);
@@ -90,63 +92,5 @@ Entity Play::getBlock()
 
 void Play::Update()
 {
-    auto size = shapes.size();
-    for (unsigned int i = 0; i < size; ++i)
-    {
-        if (shapes[i]->get<CPosition>()->getX() <= 0)
-        {
-            shapes[i]->get<CPosition>()->setX(0);
-        }
-        if (shapes[i]->get<CPosition>()->getX() >= 448)
-        {
-            shapes[i]->get<CPosition>()->setX(448);
-        }
-        if (shapes[i]->get<CPosition>()->getY() <= 0)
-        {
-            shapes[i]->get<CPosition>()->setY(0);
-        }
-        if (shapes[i]->get<CPosition>()->getY() >= 448)
-        {
-            shapes[i]->get<CPosition>()->setY(448);
-        }
 
-        if (shapes[i]->get<CPosition>()->getY() >= 300 && shapes[i]->get<CState>()->getS() == 0)
-        {
-            shapes[i]->get<CState>()->setS(1);
-            auto block = this->getBlock();
-            shapes.push_back(std::make_shared<Entity>(block));
-        }
-    }
-    for (std::vector<std::shared_ptr<Entity>>::iterator iter = shapes.begin() ; iter != shapes.end(); ++iter)
-    {
-        // Collision detection
-//        if ((*iter)->get<CPosition>()->getX() <= 0)
-//        {
-//            (*iter)->get<CPosition>()->setX(0);
-//        }
-//        if ((*iter)->get<CPosition>()->getX() >= 448)
-//        {
-//            (*iter)->get<CPosition>()->setX(448);
-//        }
-//        if ((*iter)->get<CPosition>()->getY() <= 0)
-//        {
-//            (*iter)->get<CPosition>()->setY(0);
-//        }
-//        if ((*iter)->get<CPosition>()->getY() >= 448)
-//        {
-//            (*iter)->get<CPosition>()->setY(448);
-//        }
-
-//        if ((*iter)->get<CState>()->getS() == 0)
-//        {
-//        if (((*iter)->get<CPosition>()->getY() >= 300))// && ((*iter)->get<CState>()->getS() == 0))
-//        {
-//            (*iter)->get<CState>()->setS(1);
-//            std::cout << (*iter)->get<CState>()->getS() << std::endl;
-//            auto block = this->getBlock();
-//            shapes.pop_back();
-//            shapes.push_back(std::make_shared<Entity>(block));
-//        }
-//        }
-    }
 }

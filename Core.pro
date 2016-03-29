@@ -23,7 +23,8 @@ SOURCES += main.cpp \
     CORE/block.cpp \
     CORE/entity.cpp \
     CORE/States/play.cpp \
-    CORE/States/pause.cpp
+    CORE/States/pause.cpp \
+    CORE/Systems/collision.cpp
 
 HEADERS += \
     CORE/component.h \
@@ -36,4 +37,5 @@ HEADERS += \
     CORE/entity.h \
     CORE/States/play.h \
     CORE/States/pause.h \
-    CORE/Systems/movement.h
+    CORE/Systems/movement.h \
+    CORE/Systems/collision.h
