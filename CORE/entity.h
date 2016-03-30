@@ -2,7 +2,6 @@
 #define ENTITY_H
 
 #include <map>
-#include <memory>
 #include <string>
 #include <typeindex>
 

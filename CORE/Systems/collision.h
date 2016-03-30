@@ -1,7 +1,11 @@
 #ifndef COLLISION_H
 #define COLLISION_H
 
-#include  "CORE/appengine.h"
+#include <memory>
+
+#include "CORE/Components/position.h"
+#include "CORE/Components/velocity.h"
+#include "CORE/entity.h"
 
 class Collision
 {

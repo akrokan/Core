@@ -5,8 +5,7 @@ Play::Play(sf::RenderWindow *window, AppEngine *App)
     App->ChangeState("PlayState");
 
     // Get a block
-//    auto block = this->getBlock();
-    auto block = Block::getBlock();
+    auto block = B.getBlock();
 
     // Push it on the "stack"
     shapes.push_back(std::make_shared<Entity>(block));
@@ -55,39 +54,11 @@ void Play::Event(sf::RenderWindow *window, AppEngine *App)
             else if (event.key.code == sf::Keyboard::Space)
             {
                 Movement::drop(shape);
-                auto block = this->getBlock();
+                auto block = B.getBlock();
                 shapes.push_back(std::make_shared<Entity>(block));
             }
         }
     }
-}
-
-Entity Play::getBlock()
-{
-//    Block B;
-    // set position
-    auto pos = new CPosition;
-    pos->setX(0);
-    pos->setY(0);
-    E.addComponent(std::type_index(typeid(CPosition)), pos);
-
-    // set sprite from a spritesheet
-    auto spr = new CSprite;
-    spr->setSprite(B.getSprite(0, 0)); // coordinates in spritesheet
-    E.addComponent(std::type_index(typeid(CSprite)), spr);
-
-    // set state (0 = moveable)
-    auto sta = new CState;
-    sta->setS(0);
-    E.addComponent(std::type_index(typeid(CState)), sta);
-
-    // set velocity
-    auto vel = new CVelocity;
-    vel->setVelX(32);
-    vel->setVelY(32);
-    E.addComponent(std::type_index(typeid(CVelocity)), vel);
-
-    return E;
 }
 
 void Play::Update()

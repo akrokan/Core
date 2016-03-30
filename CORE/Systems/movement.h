@@ -1,7 +1,8 @@
 #ifndef MOVEMENT_H
 #define MOVEMENT_H
 
-#include "CORE/appengine.h"
+#include "CORE/Components/position.h"
+#include "CORE/Components/velocity.h"
 #include "CORE/Systems/collision.h"
 
 class Movement

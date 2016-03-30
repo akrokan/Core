@@ -10,7 +10,6 @@ class AppEngine;
 class Play
 {
     bool play {1};
-    Entity E;
     Block B;
     std::vector<std::shared_ptr<Entity>> shapes;
 

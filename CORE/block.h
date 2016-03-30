@@ -14,6 +14,7 @@
 
 class Block
 {
+    Entity E;
     int x {0}, y {0};
     sf::Sprite sprite;
     sf::Texture texture;
@@ -24,7 +25,7 @@ public:
     Block();
 
     // Functions
-    static Entity getBlock();
+    Entity getBlock();
     sf::Sprite getSprite(int x, int y);
 };
 

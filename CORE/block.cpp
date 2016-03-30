@@ -4,8 +4,10 @@ Block::Block() {}
 
 Entity Block::getBlock()
 {
-    Block B;
-    Entity E;
+//    Block B;
+//    Entity E;
+//    sf::Sprite sprite;
+//    sf::Texture texture;
 
     // set position
     auto pos = new CPosition;
@@ -15,7 +17,7 @@ Entity Block::getBlock()
 
     // set sprite from a spritesheet
     auto spr = new CSprite;
-    spr->setSprite(B.getSprite(0, 0)); // coordinates in spritesheet
+    spr->setSprite(this->getSprite(0, 0)); // coordinates in spritesheet
     E.addComponent(std::type_index(typeid(CSprite)), spr);
 
     // set state (0 = moveable)

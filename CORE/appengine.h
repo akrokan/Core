@@ -2,8 +2,8 @@
 #define APPENGINE_H
 
 #include <iostream>
+#include <memory>
 #include <stack>
-#include <string>
 
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
@@ -11,9 +11,6 @@
 #include "entity.h"
 #include "Components/position.h"
 #include "Components/sprite.h"
-#include "Components/state.h"
-#include "Components/velocity.h"
-#include "States/pause.h"
 #include "States/play.h"
 
 class AppEngine
