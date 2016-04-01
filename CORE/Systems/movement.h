@@ -1,9 +1,11 @@
 #ifndef MOVEMENT_H
 #define MOVEMENT_H
 
+#include <memory>
+
 #include "CORE/Components/position.h"
 #include "CORE/Components/velocity.h"
-#include "CORE/Systems/collision.h"
+#include "CORE/entity.h"
 
 class Movement
 {
@@ -15,7 +17,6 @@ public:
 
     // Functions
     static void down    (std::shared_ptr<Entity> shape);
-    static void drop    (std::shared_ptr<Entity> shape);
     static void left    (std::shared_ptr<Entity> shape);
     static void right   (std::shared_ptr<Entity> shape);
     static void up      (std::shared_ptr<Entity> shape);

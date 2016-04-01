@@ -2,22 +2,22 @@
 
 CPosition::CPosition() {}
 
-float CPosition::getX() const
+int CPosition::getX() const
 {
     return x;
 }
 
-float CPosition::getY() const
+int CPosition::getY() const
 {
     return y;
 }
 
-void CPosition::setX(float x)
+void CPosition::setX(int x)
 {
     this->x = x;
 }
 
-void CPosition::setY(float y)
+void CPosition::setY(int y)
 {
     this->y = y;
 }

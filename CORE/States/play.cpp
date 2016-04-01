@@ -6,9 +6,11 @@ Play::Play(sf::RenderWindow *window, AppEngine *App)
 
     // Get a block
     auto block = B.getBlock();
-
-    // Push it on the "stack"
     shapes.push_back(std::make_shared<Entity>(block));
+
+    // Place a wall
+    auto wall = Block::getWall();
+    shapes.push_back(std::make_shared<Entity>(wall));
 
     while (play)
     {
@@ -31,29 +33,32 @@ void Play::Event(sf::RenderWindow *window, AppEngine *App)
         }
         if (event.type == sf::Event::KeyPressed)
         {
-            // only the first shape is can take actions
-            auto shape = shapes.back();
+            // only the first shape can take actions
+            auto shape = shapes.front();
 
             // actions possible with a shape
             if (event.key.code == sf::Keyboard::Left)
             {
-                Movement::left(shape);
+                if (Collision::Check(shapes, "left"))
+                    Movement::left(shape);
             }
             else if (event.key.code == sf::Keyboard::Right)
             {
-                Movement::right(shape);
+                if (Collision::Check(shapes, "right"))
+                    Movement::right(shape);
             }
             else if (event.key.code == sf::Keyboard::Up)
             {
-                Movement::up(shape);
+                if (Collision::Check(shapes, "up"))
+                    Movement::up(shape);
             }
             else if (event.key.code == sf::Keyboard::Down)
             {
-                Movement::down(shape);
+                if (Collision::Check(shapes, "down"))
+                    Movement::down(shape);
             }
             else if (event.key.code == sf::Keyboard::Space)
             {
-                Movement::drop(shape);
                 auto block = B.getBlock();
                 shapes.push_back(std::make_shared<Entity>(block));
             }
@@ -63,5 +68,8 @@ void Play::Event(sf::RenderWindow *window, AppEngine *App)
 
 void Play::Update()
 {
-
+//        if (std::abs(current->get<CPosition>()->getX() - shapes[1]->get<CPosition>()->getX()) <=
+//                std::numeric_limits<float>::epsilon() *
+//                std::max(std::abs(current->get<CPosition>()->getX()), std::abs(shapes[1]->get<CPosition>()->getX())) *
+//                1)
 }

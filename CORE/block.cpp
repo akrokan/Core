@@ -1,14 +1,9 @@
 #include "block.h"
 
-Block::Block() {}
+Block::Block() { }
 
 Entity Block::getBlock()
 {
-//    Block B;
-//    Entity E;
-//    sf::Sprite sprite;
-//    sf::Texture texture;
-
     // set position
     auto pos = new CPosition;
     pos->setX(32);
@@ -17,6 +12,7 @@ Entity Block::getBlock()
 
     // set sprite from a spritesheet
     auto spr = new CSprite;
+    spr->setSize(32);
     spr->setSprite(this->getSprite(0, 0)); // coordinates in spritesheet
     E.addComponent(std::type_index(typeid(CSprite)), spr);
 
@@ -34,9 +30,30 @@ Entity Block::getBlock()
     return E;
 }
 
+Entity Block::getWall()
+{
+    Block B;
+    Entity E;
+
+    // set position
+    auto pos = new CPosition;
+    pos->setX(96);
+    pos->setY(96);
+    E.addComponent(std::type_index(typeid(CPosition)), pos);
+
+    // set sprite from a spritesheet
+    auto spr = new CSprite;
+    spr->setSize(32);
+    spr->setSprite(B.getSprite(1, 1)); // coordinates in spritesheet
+    E.addComponent(std::type_index(typeid(CSprite)), spr);
+
+    return E;
+}
+
 sf::Sprite Block::getSprite(int x, int y)
 {
-    if (!texture.loadFromFile("image.png", sf::IntRect(x, y, spriteSize, spriteSize)))
+    auto spriteSize = 32;
+    if (!texture.loadFromFile("image.png", sf::IntRect(x * spriteSize, y * spriteSize, spriteSize, spriteSize)))
     {
         std::cout << "Error: sprite sheet not found" << std::endl;
     }

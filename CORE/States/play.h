@@ -4,6 +4,7 @@
 #include "CORE/appengine.h"
 #include "CORE/block.h"
 #include "CORE/Systems/movement.h"
+#include "CORE/Systems/collision.h"
 
 class AppEngine;
 
@@ -21,7 +22,7 @@ public:
     ~Play() {};
 
     // Functions
-    void Event      (sf::RenderWindow *window, AppEngine *App);
+    void Event (sf::RenderWindow *window, AppEngine *App);
     void Update ();
 
     Entity getBlock();

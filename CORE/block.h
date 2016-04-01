@@ -18,7 +18,6 @@ class Block
     int x {0}, y {0};
     sf::Sprite sprite;
     sf::Texture texture;
-    unsigned int spriteSize {32};
 
 public:
     // Constructor
@@ -26,6 +25,7 @@ public:
 
     // Functions
     Entity getBlock();
+    static Entity getWall();
     sf::Sprite getSprite(int x, int y);
 };
 

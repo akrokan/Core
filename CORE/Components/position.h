@@ -10,14 +10,14 @@ class CPosition : public Component
 public:
     // Constructors
     CPosition();
-    CPosition(float x, float y);
+    CPosition(int x, int y);
 
     // Functions
-    float getX() const;
-    float getY() const;
+    int getX() const;
+    int getY() const;
 
-    void setX(float x);
-    void setY(float y);
+    void setX(int x);
+    void setY(int y);
 };
 
 #endif // CPOSITION_H

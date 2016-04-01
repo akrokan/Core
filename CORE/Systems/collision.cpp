@@ -1,25 +1,39 @@
 #include "collision.h"
 
-Collision::Collision()
-{
+Collision::Collision() { }
 
-}
-
-bool Collision::Check(std::shared_ptr<Entity> shape, std::string move)
+bool Collision::Check(std::vector<std::shared_ptr<Entity> > shapes, std::string move)
 {
-    if (move == "left" && shape->get<CPosition>()->getX() - shape->get<CVelocity>()->getVelX() < 0)
+    auto current = shapes.front();
+
+    if (move == "down" && (
+            current->get<CPosition>()->getY() + current->get<CVelocity>()->getVelY() > 448 || (
+            current->get<CPosition>()->getX() == shapes[1]->get<CPosition>()->getX() &&
+            current->get<CPosition>()->getY() + current->get<CSprite>()->getSize() == shapes[1]->get<CPosition>()->getY())))
     {
         return 0;
     }
-    if (move == "right" && shape->get<CPosition>()->getX() + shape->get<CVelocity>()->getVelX() > 448)
+
+    if (move == "left" && (
+            current->get<CPosition>()->getX() - current->get<CVelocity>()->getVelX() < 0 || (
+            current->get<CPosition>()->getX() == shapes[1]->get<CPosition>()->getX() + shapes[1]->get<CSprite>()->getSize() &&
+            current->get<CPosition>()->getY() == shapes[1]->get<CPosition>()->getY())))
     {
         return 0;
     }
-    if (move == "up" && shape->get<CPosition>()->getY() - shape->get<CVelocity>()->getVelY() < 0)
+
+    if (move == "right" && (
+            current->get<CPosition>()->getX() + current->get<CVelocity>()->getVelX() > 448 || (
+            current->get<CPosition>()->getX() + current->get<CSprite>()->getSize() == shapes[1]->get<CPosition>()->getX() &&
+            current->get<CPosition>()->getY() == shapes[1]->get<CPosition>()->getY())))
     {
         return 0;
     }
-    if (move == "down" && shape->get<CPosition>()->getY() + shape->get<CVelocity>()->getVelY() > 448)
+
+    if (move == "up" && (
+            current->get<CPosition>()->getY() - current->get<CVelocity>()->getVelY() < 0 || (
+            current->get<CPosition>()->getX() == shapes[1]->get<CPosition>()->getX() &&
+            current->get<CPosition>()->getY() == shapes[1]->get<CPosition>()->getY() + shapes[1]->get<CSprite>()->getSize())))
     {
         return 0;
     }
