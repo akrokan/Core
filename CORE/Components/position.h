@@ -5,7 +5,7 @@
 
 class CPosition : public Component
 {
-    float x {0}, y {0};
+    int x {0}, y {0};
 
 public:
     // Constructors

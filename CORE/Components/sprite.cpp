@@ -1,6 +1,9 @@
 #include "sprite.h"
 
-CSprite::CSprite() { }
+CSprite::CSprite()
+{
+
+}
 
 int CSprite::getSize()
 {
